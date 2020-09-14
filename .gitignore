@@ -8,4 +8,4 @@
 !*/
 
 # Ignore .vscode dir
-!*.vscode
+*.vscode
