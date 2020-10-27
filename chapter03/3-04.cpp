@@ -9,31 +9,26 @@ using std::endl;
 int main()
 {
     typedef vector<string>::size_type vec_sz;
-    vector<string> words;
-    vector<int> counts;
-   
+    
     cout << "Please enter a sequence of words, "
             "followed by end-of-file: ";
-    string s;
+    
+    // initialize variables longest and shortest
+    string s, shortest, longest;
+    cin >> s;
+    longest = shortest = s;
 
+    // compute length for rest of strings
     while (cin >> s) {
-        bool exists = false;
-
-        for (vec_sz i = 0; i < words.size(); i++) {
-            if (s == words[i]) {
-                counts[i]++;
-                exists = true;
-            }
-        }
-
-        if (!exists) {
-            words.push_back(s);
-            counts.push_back(1);
-        }
+        if (s.length() > longest.length())
+            longest = s;
+        
+        if (s.length() < shortest.length())
+            shortest = s;
     }
 
-    for (vec_sz i = 0; i < words.size(); i++)
-        cout << words[i] << ":\t" << counts[i] << endl;
+    cout << "Longest word has " << longest.length() << " characters." << endl;
+    cout << "Shortest word has " << shortest.length() << " characters." << endl;
 
     return 0;
 }
