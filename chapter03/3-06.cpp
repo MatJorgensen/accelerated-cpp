@@ -40,7 +40,7 @@ int main()
     }
 
     // division by zero outputs value -nan
-    double homework = count == 0 ? 0 : sum / count;
+    double homework = count > 0 ? sum / count : 0.0;
 
     // write the result
     streamsize prec = cout.precision();
